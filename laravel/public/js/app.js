@@ -1942,6 +1942,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37651,8 +37654,191 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", [
+      _c("p", [
+        _vm._v("タイトル："),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.title,
+              expression: "title"
+            }
+          ],
+          attrs: { type: "text" },
+          domProps: { value: _vm.title },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.title = $event.target.value
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("著者："),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.author,
+              expression: "author"
+            }
+          ],
+          attrs: { type: "text" },
+          domProps: { value: _vm.author },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.author = $event.target.value
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.addBook } }, [_vm._v("追加")])
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "ul",
+        _vm._l(_vm.books, function(book) {
+          return _c("li", { key: book.id }, [
+            _c("p", [
+              _vm._v(
+                "タイトル：" +
+                  _vm._s(book.title) +
+                  " 　著者：" +
+                  _vm._s(book.author)
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                attrs: { disable: _vm.isPush },
+                on: {
+                  click: function($event) {
+                    return _vm.displayUpdate(book.id, book.title, book.author)
+                  }
+                }
+              },
+              [_vm._v("\n                    編集\n                ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                attrs: { disable: _vm.isPush },
+                on: {
+                  click: function($event) {
+                    return _vm.deleteBook(book.id)
+                  }
+                }
+              },
+              [_vm._v("\n                    削除\n                ")]
+            )
+          ])
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _vm.updateForm
+      ? _c("div", [
+          _c("p", [
+            _vm._v(
+              "タイトルが「" + _vm._s(_vm.updateTitle) + "」の編集フォーム"
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("タイトル："),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.updateTitle,
+                  expression: "updateTitle"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.updateTitle },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.updateTitle = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("著者："),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.updateAuthor,
+                  expression: "updateAuthor"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.updateAuthor },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.updateAuthor = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.updateBook(
+                    _vm.updateId,
+                    _vm.updateTitle,
+                    _vm.updateAuthor
+                  )
+                }
+              }
+            },
+            [_vm._v("\n            編集する\n        ")]
+          ),
+          _vm._v(" "),
+          _c("button", { on: { click: _vm.updateCancel } }, [
+            _vm._v("キャンセル")
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.message ? _c("p", [_vm._v(_vm._s(_vm.message))]) : _vm._e()
+  ])
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
@@ -49871,9 +50057,16 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_BookComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/BookComponent */ "./resources/js/components/BookComponent.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49892,16 +50085,22 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-Vue.component('book-component', __webpack_require__(/*! ./components/BookComponent.vue */ "./resources/js/components/BookComponent.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('book-component', __webpack_require__(/*! ./components/BookComponent.vue */ "./resources/js/components/BookComponent.vue")["default"]);
+
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
-  el: '#app'
+var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
+  el: '#app',
+  components: {
+    BookComponent: _components_BookComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }
 });
 
 /***/ }),
@@ -50089,26 +50288,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!***********************************!*\
+  !*** multi ./resources/js/app.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /var/www/resources/js/app.js */"./resources/js/app.js");
 
 
 /***/ })

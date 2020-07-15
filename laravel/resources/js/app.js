@@ -22,6 +22,10 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('book-component', require('./components/BookComponent.vue').default);
 
+import './bootstrap'
+import Vue from 'vue'
+import BookComponent from './components/BookComponent'
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -30,4 +34,7 @@ Vue.component('book-component', require('./components/BookComponent.vue').defaul
 
 const app = new Vue({
     el: '#app',
+    components: {
+        BookComponent,
+    }
 });

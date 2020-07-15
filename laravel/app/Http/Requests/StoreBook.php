@@ -24,8 +24,16 @@ class StoreBook extends FormRequest
     public function rules()
     {
         return [
-            'title'  => 'required|max10',
-            'author' => 'required|max10',
+            'title'  => 'required|max:10',
+            'author' => 'required|max:10',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title'  => 'タイトル',
+            'author' => '著者',
         ];
     }
 }

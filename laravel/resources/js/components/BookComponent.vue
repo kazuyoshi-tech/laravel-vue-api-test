@@ -1,4 +1,5 @@
 <template>
+<div>
     <div>
         <p>タイトル：<input type="text" v-model="title" /></p>
         <p>著者：<input type="text" v-model="author" /></p>
@@ -7,11 +8,12 @@
     <div>
         <ul>
             <li v-for="book in books" :key="book.id">
-                {{ book.id }}/{{ book.title }}/{{ book.author }}
+                <p>タイトル：{{ book.title }} 　著者：{{ book.author }}</p>
                 <button
                     :disable="isPush"
                     @click="displayUpdate(book.id, book.title, book.author)"
                 >
+                    編集
                 </button>
                 <button :disable="isPush" @click="deleteBook(book.id)">
                     削除
@@ -20,16 +22,17 @@
         </ul>
     </div>
     <div v-if="updateForm">
-        <p>idが{{ updateId }}の編集フォーム</p>
+        <p>タイトルが「{{ updateTitle }}」の編集フォーム</p>
         <p>タイトル：<input type="text" v-model="updateTitle" /></p>
-        <p>著者：<input type="text" v-model="updateAuther" /></p>
-        <button @click="updateBook(updateId, updateTitle, updateAuther)">
+        <p>著者：<input type="text" v-model="updateAuthor" /></p>
+        <button @click="updateBook(updateId, updateTitle, updateAuthor)">
             編集する
         </button>
         <button @click="updateCancel">キャンセル</button>
     </div>
 
     <p v-if="message">{{ message }}</p>
+</div>
 </template>
 
 <script>
