@@ -24,7 +24,7 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBook $request)
     {
         Book::create($request->all());
     }
@@ -47,7 +47,7 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreBook $request, $id)
     {
         $update = [
             'title'  => $request->title,
