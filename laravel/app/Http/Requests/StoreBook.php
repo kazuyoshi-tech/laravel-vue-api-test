@@ -24,8 +24,8 @@ class StoreBook extends FormRequest
     public function rules()
     {
         return [
-            'title'  => 'required|max:10',
-            'author' => 'required|max:10',
+            'title'  => 'required|max:30',
+            'author' => 'required|max:30',
         ];
     }
 

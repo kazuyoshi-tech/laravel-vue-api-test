@@ -16,5 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::apiResource('/books', 'BookController');
+Route::apiResource('/books', 'BookController')->except(['update','destroy']);
 Route::put('/books/{id}', 'BookController@update')->name('books.update');
+Route::delete('/books/{id}', 'BookController@destroy')->name('books.destroy');

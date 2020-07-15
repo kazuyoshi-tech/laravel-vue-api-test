@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::get('/book', 'BookManageController@index');
 
+Route::get('{any}', function () {
+    return view('index');
+})->where('any', '.*');
