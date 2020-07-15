@@ -49,8 +49,6 @@ class BookController extends Controller
      */
     public function update(StoreBook $request, $id)
     {
-        // $book = Book::where('id', $id);
-        // $book->fill($request->all())->save();
         $update = [
             'title' => $request->title,
             'author' => $request->author
